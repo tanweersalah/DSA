@@ -297,3 +297,101 @@ linked_list.traverse()  # Output: 0 -> 1.75 -> 2 -> None
 | Memory Overhead                | Higher (due to pointers)             | Lower                                            |
 | Cache Performance              | Poor                                 | Good                                             |
 | Memory Contiguity              | Not required                         | Required                                         |
+
+## Doubly Linked List
+
+#### Advantages
+
+1. **Bidirectional Traversal**:
+
+   - **Improvement**: Each node points to both the next and the previous node, allowing traversal in both directions.
+   - **Use Case**: Useful for operations that need to move forward and backward, such as certain types of iteration or undo functionality in applications.
+
+2. **Easier Deletion**:
+   - **Improvement**: Deleting a node is more straightforward because you have direct access to the previous node.
+   - **Use Case**: Simplifies deletion operations, particularly when the node to be deleted is not at the beginning.
+
+#### Disadvantages
+
+1. **Increased Memory Usage**:
+
+   - **Consideration**: Each node requires extra memory for an additional pointer to the previous node.
+   - **Impact**: Higher memory overhead compared to singly linked lists.
+
+2. **Slightly More Complex Implementation**:
+   - **Consideration**: Managing two pointers (next and previous) increases the complexity of insertion and deletion operations.
+
+#### Time Complexity Comparison
+
+| Operation             | Singly Linked List | Doubly Linked List |
+| --------------------- | ------------------ | ------------------ |
+| Insert at Beginning   | \( O(1) \)         | \( O(1) \)         |
+| Insert at End         | \( O(n) \)         | \( O(n) \)         |
+| Insert After Node     | \( O(1) \)         | \( O(1) \)         |
+| Delete from Beginning | \( O(1) \)         | \( O(1) \)         |
+| Delete from End       | \( O(n) \)         | \( O(n) \)         |
+| Delete Given Node     | \( O(n) \)         | \( O(n) \)         |
+| Traverse              | \( O(n) \)         | \( O(n) \)         |
+| Search                | \( O(n) \)         | \( O(n) \)         |
+
+## Circular Linked List
+
+#### Advantages
+
+1. **Circular Nature**:
+
+   - **Improvement**: The last node points back to the first node, forming a circular structure.
+   - **Use Case**: Useful for applications that require circular traversal, such as round-robin scheduling, buffer management, or implementing certain data structures like circular queues.
+
+2. **Efficient End-to-Start Traversal**:
+   - **Improvement**: Easier to loop through the list from end to start without needing special cases for the end.
+   - **Use Case**: Simplifies algorithms that need to wrap around from the end to the beginning.
+
+#### Disadvantages
+
+1. **Complex Implementation**:
+
+   - **Consideration**: Managing the circular nature of the list can complicate implementation and debugging.
+   - **Impact**: Ensuring proper handling of the circular links requires careful coding, particularly for insertion and deletion operations.
+
+2. **Potential for Infinite Loops**:
+   - **Consideration**: Without careful management, circular linked lists can lead to infinite loops during traversal if not properly terminated.
+   - **Impact**: Requires additional checks to avoid infinite loops, adding complexity to traversal logic.
+
+#### Time Complexity Comparison
+
+| Operation             | Singly Linked List | Circular Linked List |
+| --------------------- | ------------------ | -------------------- |
+| Insert at Beginning   | \( O(1) \)         | \( O(1) \)           |
+| Insert at End         | \( O(n) \)         | \( O(n) \)           |
+| Insert After Node     | \( O(1) \)         | \( O(1) \)           |
+| Delete from Beginning | \( O(1) \)         | \( O(1) \)           |
+| Delete from End       | \( O(n) \)         | \( O(n) \)           |
+| Delete Given Node     | \( O(n) \)         | \( O(n) \)           |
+| Traverse              | \( O(n) \)         | \( O(n) \)           |
+| Search                | \( O(n) \)         | \( O(n) \)           |
+
+### Summary Table of Advantages and Disadvantages
+
+| Feature/Operation         | Singly Linked List | Doubly Linked List     | Circular Linked List                  |
+| ------------------------- | ------------------ | ---------------------- | ------------------------------------- |
+| Memory Usage              | Lower              | Higher (extra pointer) | Similar to singly linked list         |
+| Bidirectional Traversal   | No                 | Yes                    | No                                    |
+| Insert at Beginning       | \( O(1) \)         | \( O(1) \)             | \( O(1) \)                            |
+| Insert at End             | \( O(n) \)         | \( O(n) \)             | \( O(n) \)                            |
+| Insert After Node         | \( O(1) \)         | \( O(1) \)             | \( O(1) \)                            |
+| Delete from Beginning     | \( O(1) \)         | \( O(1) \)             | \( O(1) \)                            |
+| Delete from End           | \( O(n) \)         | \( O(n) \)             | \( O(n) \)                            |
+| Delete Given Node         | \( O(n) \)         | \( O(n) \)             | \( O(n) \)                            |
+| Traverse                  | \( O(n) \)         | \( O(n) \)             | \( O(n) \), careful of infinite loops |
+| Search                    | \( O(n) \)         | \( O(n) \)             | \( O(n) \)                            |
+| Circular Nature           | No                 | No                     | Yes                                   |
+| Implementation Complexity | Simple             | Moderate               | High                                  |
+
+### Conclusion
+
+Choosing between singly linked lists, doubly linked lists, and circular linked lists depends on the specific requirements of your application:
+
+- **Singly Linked List**: Best for simple scenarios with frequent insertions and deletions at the beginning and where bidirectional traversal is not needed.
+- **Doubly Linked List**: Ideal for scenarios requiring bidirectional traversal or easier deletion of nodes when you have a reference to the node.
+- **Circular Linked List**: Useful for circular traversal applications, such as implementing round-robin scheduling or circular queues.
